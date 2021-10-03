@@ -1,10 +1,20 @@
 import React from 'react';
-import LoginPage from './ui/modules/login/pages/login';
-
+import routes from './router/routes'
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-<LoginPage/>
+    <div>
+      <Switch>
+         {routes.map((route, index) => 
+            <Route
+              key={index}
+              path={route.path} 
+              exact={route.exact} 
+              render={route.component}
+              />)}
+      </Switch>
+    </div>
   );
 }
 
